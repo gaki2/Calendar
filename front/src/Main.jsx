@@ -31,7 +31,6 @@ const Span = styled.span`
 `;
 
 export default function MainBody() {
-
     const [openModal, setOpenModal] = useState(false);
 
     let lis = [];

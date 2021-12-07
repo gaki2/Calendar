@@ -3,7 +3,8 @@ import React from 'react';
 
 const HeaderDiv = styled.div`
     height: 95px;
-    background-color: yellow;
+    background-color: #00081f;
+background-image: url("https://www.transparenttextures.com/patterns/asfalt-light.png");
 `;
 
 
