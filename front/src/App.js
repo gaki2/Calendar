@@ -1,13 +1,19 @@
-import './App.css';
-import Header from "./Header";
-import MainBody from "./Main";
-import MainBody2 from './LandingPage/Main2';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Header from "./LandingPage/Header";
+import LBody from "./LandingPage/LBody"; // Landing Body
+import CBody from "./Calendar/CBody";
 
 function App() {
   return (
-    <div>
-    <MainBody2></MainBody2>
-    </div>
+    <BrowserRouter>
+      <>
+        <Header></Header>
+        <Routes>
+          <Route path="/" element={<LBody />}></Route>
+          <Route path="/calendar" element={<CBody />}></Route>
+        </Routes>
+      </>
+    </BrowserRouter>
   );
 }
 

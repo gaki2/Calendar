@@ -4,7 +4,7 @@ import styled from 'styled-components';
 const Span = styled.span`
     color: rgba(255,255,255,0.84);
     font-size: 100px;
-    font-family: 'Nanum Gothic', sans-serif;
+    font-family: SF;
     font-weight: 700;
 `;
 
@@ -57,7 +57,7 @@ const Counter = () => {
     return(
         <div>
                 {nowTime.year ? <Div><p><Span>{`${nowTime.year}년 ${nowTime.month} 월 ${nowTime.date}일 (${nowTime.day}) `}</Span></p>
-                <p><Span>{`${nowTime.hour}:${nowTime.min}:${nowTime.sec}`}</Span></p></Div> : <Div><Span>Loading...</Span></Div>}
+                <p><Span>{`${nowTime.hour}:${nowTime.min}:${nowTime.sec}`}</Span></p></Div> : null}
         </div>
     )
 }

@@ -1,12 +1,14 @@
 import Home from '../icon/home.svg';
 import Calendar from '../icon/calendar.svg';
+import Clock from '../icon/clock.svg';
 import styled from 'styled-components';
+import {Link} from 'react-router-dom'
 
 const HeaderDiv = styled.div`
     width:100vw;
-    height: 47px;
-    border-bottom: 3px solid black;
-    background: rgba(255,255,255,0.93);
+    height: 6vh;
+    border-bottom: 2px solid black;
+    background: #f5f5f5;
     z-index: 10;
     position:absolute;
     top: 0.1px;
@@ -32,8 +34,9 @@ const Header = () => {
     return(
         <>
             <HeaderDiv>
-                <IconBox src={Home}></IconBox>
-                <IconBox src={Calendar}></IconBox>
+                <Link to='/'><IconBox src={Home}></IconBox></Link>
+                <Link to='/calendar'><IconBox src={Calendar}></IconBox></Link>
+                <Link to='/timer'><IconBox src={Clock}></IconBox></Link>
             </HeaderDiv>
         </>
     )
