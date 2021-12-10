@@ -1,22 +1,16 @@
+// 부모 display: flex, flex-direction: column;
 import styled from 'styled-components';
-import { ReactComponent as ButtonImg } from '../icon/chevronUp.svg';
+import { ReactComponent as ButtonImg } from '../icon/chevronDown.svg';
 
 const Div = styled.div`
-    position: relative;
-    z-index: 2;
-    width: 100%;
-    height: 20vh;
-    border-bottom: 1px solid red;
-    padding-top: 6vh;
-    
+    width:100%;
+    height:14vh;
     display:flex;
     align-items: center;
     justify-content: center;
 `;
 
-
-
-const UpButton = () => {
+const DownButton = () => {
     return(
         <>
             <Div>
@@ -26,4 +20,4 @@ const UpButton = () => {
     )
 }
 
-export default UpButton;
+export default DownButton;

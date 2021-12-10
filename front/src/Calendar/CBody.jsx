@@ -1,35 +1,47 @@
-import styled from 'styled-components';
-import CheckList from './CheckList';
+import styled from  'styled-components';
 
-const Div = styled.div`
-    height: 100vh;
-    background-image: url("Img/strayspace.jpg");
-    background-size: cover;                   
-    background-repeat: no-repeat;
+//LeftDiv Child
+import UpButton from './UpButton';
+import DateAndDay from './DateAndDay';
+import DownButton from './DownButton';
+//RightDiv Child
+import Sentence from './Sentence';
+
+
+const LeftDiv = styled.div`
+    position: relative;
+    z-index: 2;
+    width:10vw;
+    height:100vh;
+    border: 1px solid red;
+    border-right: 0;
+    background: black;
+    display: flex;
+    flex-direction: column;
+`;
+
+const RightDiv = styled.div`
+position: relative;
+    z-index: 2;
+    width:100%;
+    height:100%;
+    border: 1px solid red;
     display:flex;
-    // align-items: center;
-    // justify-content: center;
 `;
-
-const Filter = styled.div`
-    height: 100vh;
-    position: absolute;
-    top:0;
-    left:0;
-    width: 100vw;
-    background: rgba(0,0,0,0.64);
-`;
-
 
 const CBody = () => {
     return(
         <>
-        <Div>
-            <CheckList></CheckList>
-        </Div>
-        <Filter></Filter>
+            <LeftDiv>
+                <UpButton></UpButton>
+                <DateAndDay></DateAndDay>
+                <DownButton></DownButton>
+            </LeftDiv>
+            <RightDiv>
+                <Sentence></Sentence>
+            </RightDiv>
         </>
     )
-}
+};
 
 export default CBody;

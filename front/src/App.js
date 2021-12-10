@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "./LandingPage/Header";
 import LBody from "./LandingPage/LBody"; // Landing Body
-import CBody from "./Calendar/CBody";
+import CDiv from "./Calendar/CDiv";
 
 function App() {
   return (
@@ -10,7 +10,7 @@ function App() {
         <Header></Header>
         <Routes>
           <Route path="/" element={<LBody />}></Route>
-          <Route path="/calendar" element={<CBody />}></Route>
+          <Route path="/calendar" element={<CDiv />}></Route>
         </Routes>
       </>
     </BrowserRouter>

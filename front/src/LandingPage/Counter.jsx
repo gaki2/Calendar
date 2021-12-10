@@ -1,5 +1,10 @@
+// 새로고침 후 1초 후에 시간이 나오는 현상 -> state 의 초기값의 중요성! ( 초기값을 잘 넣어주면 시간이 나올때까지의 로딩시간이 없어짐.)
+
 import React,{useState, useEffect} from 'react';
 import styled from 'styled-components';
+
+import dayjs from 'dayjs';
+import 'dayjs/locale/ko';
 
 const Span = styled.span`
     color: rgba(255,255,255,0.84);
@@ -22,42 +27,43 @@ const Div = styled.div`
 
 
 const Counter = () => {
-    const [nowTime, setNowTime] = useState({
-        year: null,
-        month: null,
-        date: null,
-        day: null,
-        hour: null,
-        min: null,
-        sec: null,
-    });
+    
+    const [nowTime, setNowTime] = useState(Date());
 
     useEffect(() => {
         let timer = setInterval(() => {
-            settingTime();
+            setNowTime(Date());
         }, 1000);
         return () => {
             clearInterval(timer);
         };
     }, []);
+    
+    function toKorMonth() {
+        const months = ["JAN","FEB","MAR","APR","MAY","JUN","JUL","AUG", "SEP","OCT","NOV","DEC"];
+        const nowMonth = nowTime.split(' ')[1].toUpperCase();
+        return months.indexOf(nowMonth) + 1;
+    }
+    function toKorToday() {
+        const todays = ['Sun', 'Mon', 'Tues', 'Wed', 'Thurs', 'Fri', 'Sat'];
+        const korToday = ['일','월','화','수','목','금','토'];
+        const nowToday = nowTime.split(' ')[0];
+        return korToday[todays.indexOf(nowToday)];
+    }
 
-    const settingTime = () => {
-        let week = ['일', '월', '화', '수', '목', '금', '토'];
-        setNowTime({
-            year: new Date().getFullYear(),
-            month: (new Date().getMonth() + 1) < 10 ? '0' + (new Date().getMonth() + 1) : (new Date().getMonth() + 1),
-            date: new Date().getDate() < 10 ? '0' + new Date().getDate() : new Date().getDate(),
-            day : week[new Date().getDay() + 1], 
-            hour: new Date().getHours() < 10 ? '0' + new Date().getHours() : new Date().getHours(),
-            min: new Date().getMinutes() < 10 ? '0' + new Date().getMinutes() : new Date().getMinutes(),
-            sec: new Date().getSeconds() < 10 ? '0' + new Date().getSeconds() :new Date().getSeconds()
-        })
-        console.log(nowTime);
-    } 
+    const Time = {
+        getYear : nowTime.split(' ')[3],
+        getMonth : toKorMonth(),
+        getDate : nowTime.split(' ')[2],
+        getToday : toKorToday(),
+        getTime : nowTime.split(' ')[4],
+    }
+
     return(
         <div>
-                {nowTime.year ? <Div><p><Span>{`${nowTime.year}년 ${nowTime.month} 월 ${nowTime.date}일 (${nowTime.day}) `}</Span></p>
-                <p><Span>{`${nowTime.hour}:${nowTime.min}:${nowTime.sec}`}</Span></p></Div> : null}
+
+                {nowTime ? <Div><p><Span>{`${Time.getYear}년 ${Time.getMonth}월 ${Time.getDate}일 (${Time.getToday}) `}</Span></p>
+                <p><Span>{`${Time.getTime}`}</Span></p></Div> : null}
         </div>
     )
 }
