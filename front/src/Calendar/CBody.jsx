@@ -1,5 +1,5 @@
 import styled from  'styled-components';
-
+import {useState} from 'react';
 //LeftDiv Child
 import UpButton from './UpButton';
 import DateAndDay from './DateAndDay';
@@ -30,12 +30,14 @@ position: relative;
 `;
 
 const CBody = () => {
+    const [timeInfo, setTimeInfo] = useState(Date());
+
     return(
         <>
             <LeftDiv>
-                <UpButton></UpButton>
-                <DateAndDay></DateAndDay>
-                <DownButton></DownButton>
+                <UpButton timeInfo={timeInfo} setTimeInfo={setTimeInfo}></UpButton>
+                <DateAndDay timeInfo={timeInfo}></DateAndDay>
+                <DownButton timeInfo={timeInfo} setTimeInfo={setTimeInfo}></DownButton>
             </LeftDiv>
             <RightDiv>
                 <Sentence></Sentence>

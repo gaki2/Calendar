@@ -7,7 +7,7 @@ const Div = styled.div`
     z-index: 2;
     width:100%;
     height: 20vh;
-    font-size: 8vh;
+    font-size: 5vw;
     font-weight: 800;
     // font-style: italic;
     border-bottom: 1px solid red;
@@ -17,10 +17,10 @@ const Div = styled.div`
 `;
 
 const Sentence = () => {
-    const [sentence, setSentence] = useState(null);
+    const [sentence, setSentence] = useState("테스트");
     return(
         <>
-            <Div><p>나는 복리인간, 복덩이</p></Div>
+            <Div><p>{sentence}</p></Div>
         </>
     )
 }

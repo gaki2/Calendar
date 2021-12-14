@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import {Time} from '../utils/date.js';
 import { ReactComponent as ButtonImg } from '../icon/chevronUp.svg';
 
 const Div = styled.div`
@@ -16,11 +17,17 @@ const Div = styled.div`
 
 
 
-const UpButton = () => {
+const UpButton = ({timeInfo, setTimeInfo}) => {
+    const setTomorrow = () => {
+        const copy = new Date(timeInfo);
+        Time.setTommorow(copy);
+        setTimeInfo(copy);
+    }
+
     return(
         <>
             <Div>
-                <ButtonImg width="5vw" height="5vw" color="white" style={{cursor:"pointer"}}></ButtonImg>
+                <ButtonImg onClick={() => setTomorrow()} width="5vw" height="5vw" color="white" style={{cursor:"pointer"}}></ButtonImg>
             </Div>
         </>
     )

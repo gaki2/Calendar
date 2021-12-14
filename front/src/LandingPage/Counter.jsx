@@ -2,13 +2,11 @@
 
 import React,{useState, useEffect} from 'react';
 import styled from 'styled-components';
-
-import dayjs from 'dayjs';
-import 'dayjs/locale/ko';
+import {Time} from '../utils/date.js';
 
 const Span = styled.span`
     color: rgba(255,255,255,0.84);
-    font-size: 100px;
+    font-size: 8vw;
     font-family: SF;
     font-weight: 700;
 `;
@@ -38,32 +36,12 @@ const Counter = () => {
             clearInterval(timer);
         };
     }, []);
-    
-    function toKorMonth() {
-        const months = ["JAN","FEB","MAR","APR","MAY","JUN","JUL","AUG", "SEP","OCT","NOV","DEC"];
-        const nowMonth = nowTime.split(' ')[1].toUpperCase();
-        return months.indexOf(nowMonth) + 1;
-    }
-    function toKorToday() {
-        const todays = ['Sun', 'Mon', 'Tues', 'Wed', 'Thurs', 'Fri', 'Sat'];
-        const korToday = ['일','월','화','수','목','금','토'];
-        const nowToday = nowTime.split(' ')[0];
-        return korToday[todays.indexOf(nowToday)];
-    }
-
-    const Time = {
-        getYear : nowTime.split(' ')[3],
-        getMonth : toKorMonth(),
-        getDate : nowTime.split(' ')[2],
-        getToday : toKorToday(),
-        getTime : nowTime.split(' ')[4],
-    }
 
     return(
         <div>
 
-                {nowTime ? <Div><p><Span>{`${Time.getYear}년 ${Time.getMonth}월 ${Time.getDate}일 (${Time.getToday}) `}</Span></p>
-                <p><Span>{`${Time.getTime}`}</Span></p></Div> : null}
+                {nowTime ? <Div><p><Span>{`${Time.getYear(nowTime)}년 ${Time.getMonth(nowTime)}월 ${Time.getDate(nowTime)}일 (${Time.getToday(nowTime)}) `}</Span></p>
+                <p><Span>{`${Time.getTime(nowTime)}`}</Span></p></Div> : null}
         </div>
     )
 }

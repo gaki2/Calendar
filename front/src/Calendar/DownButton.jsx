@@ -1,6 +1,7 @@
 // 부모 display: flex, flex-direction: column;
 import styled from 'styled-components';
 import { ReactComponent as ButtonImg } from '../icon/chevronDown.svg';
+import {Time} from '../utils/date.js';
 
 const Div = styled.div`
     width:100%;
@@ -10,11 +11,17 @@ const Div = styled.div`
     justify-content: center;
 `;
 
-const DownButton = () => {
+const DownButton = ({timeInfo, setTimeInfo}) => {
+    const setYesterday = (e) => {
+        e.stopPropagation();
+        const copy = new Date(timeInfo);
+        Time.setYesterday(copy);
+        setTimeInfo(copy);
+    }
     return(
         <>
             <Div>
-                <ButtonImg width="5vw" height="5vw" color="white" style={{cursor:"pointer"}}></ButtonImg>
+                <ButtonImg onClick={(e) => {setYesterday(e)}} width="5vw" height="5vw" color="white" style={{cursor:"pointer"}}></ButtonImg>
             </Div>
         </>
     )
