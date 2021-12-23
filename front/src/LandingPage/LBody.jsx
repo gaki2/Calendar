@@ -9,7 +9,8 @@ const Filter = styled.div`
     top:0;
     left:0;
     width: 100vw;
-    background: rgba(0,0,0,0.65);
+    background: rgba(0,0,0,0.55);
+    // background: rgba(186,85,211,0.04);
 `;
 
 

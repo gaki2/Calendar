@@ -4,12 +4,11 @@ import { ReactComponent as ButtonImg } from '../icon/chevronUp.svg';
 
 const Div = styled.div`
     position: relative;
-    z-index: 2;
+    z-index: 10;
     width: 100%;
     height: 20vh;
-    border-bottom: 1px solid red;
+    border-bottom: 1px solid #4caf50;
     padding-top: 6vh;
-    
     display:flex;
     align-items: center;
     justify-content: center;
@@ -27,7 +26,7 @@ const UpButton = ({timeInfo, setTimeInfo}) => {
     return(
         <>
             <Div>
-                <ButtonImg onClick={() => setTomorrow()} width="5vw" height="5vw" color="white" style={{cursor:"pointer"}}></ButtonImg>
+                <ButtonImg onClick={() => setTomorrow()} width="5vw" height="5vw" color="#4caf50" style={{cursor:"pointer"}}></ButtonImg>
             </Div>
         </>
     )

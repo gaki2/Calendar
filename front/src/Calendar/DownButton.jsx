@@ -21,7 +21,7 @@ const DownButton = ({timeInfo, setTimeInfo}) => {
     return(
         <>
             <Div>
-                <ButtonImg onClick={(e) => {setYesterday(e)}} width="5vw" height="5vw" color="white" style={{cursor:"pointer"}}></ButtonImg>
+                <ButtonImg onClick={(e) => {setYesterday(e)}} width="5vw" height="5vw" color="#4caf50" style={{cursor:"pointer"}}></ButtonImg>
             </Div>
         </>
     )

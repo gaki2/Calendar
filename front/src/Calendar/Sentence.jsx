@@ -9,8 +9,8 @@ const Div = styled.div`
     height: 20vh;
     font-size: 5vw;
     font-weight: 800;
-    // font-style: italic;
-    border-bottom: 1px solid red;
+    background-color: black;
+    border-bottom: 1px solid #4caf50;
     color: white;
     padding-top: 6.4vh;
     text-align: center;

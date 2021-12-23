@@ -18,6 +18,7 @@ const Filter = styled.div`
     left:0;
     width: 100vw;
     background: rgba(0,0,0,0.64);
+    // background: rgba(186,85,211,0.16);
 `;
 
 

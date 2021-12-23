@@ -5,8 +5,8 @@ import {Time} from '../utils/date.js';
 const Div = styled.div`
     width: 100%;
     height: 66vh;
-    border-bottom: 1px solid red;
-
+    // border-bottom: 1px solid rgb(237,135,75);
+    
     display:flex;
     flex-direction: column;
     justify-content: center;
@@ -16,17 +16,19 @@ const Div = styled.div`
 
 const Year = styled.p`
 font-size: 2vw;
-color: #4d4d4d;
+color: #888888;
 `;
 
 const Date = styled.p`
     font-size: 2vw;
     color: white;
+    color:#888888;
 `;
 
 const Day = styled.p`
 font-size: 3vw;
 color: white;
+color: #888888;
 `;
 
 

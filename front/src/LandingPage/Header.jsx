@@ -7,8 +7,9 @@ import {Link} from 'react-router-dom'
 const HeaderDiv = styled.div`
     width:100vw;
     height: 6vh;
-    border-bottom: 2px solid black;
+    border-bottom: 3px solid #4caf50;
     background: #f5f5f5;
+    // background: #BA55D3;
     z-index: 10;
     position:absolute;
     top: 0.1px;
