@@ -7,15 +7,6 @@ const Div = styled.div`
     align-items: center;
 `;
 
-const CheckDiv = styled.div`
-    width: 30px;
-    height: 30px;
-    border-radius: 15px;
-    background: ${props => props.checked ? "#4caf50" : "#ffca28"};
-    cursor: pointer;
-`;
-
-
 
 const SpanDiv = styled.div`
     width: calc(60vw-30px);
@@ -34,7 +25,6 @@ const List = ({todo}) => {
     return(
         <>
             <Div>
-                <CheckDiv checked={t}></CheckDiv>
                 <SpanDiv checked={t}>{todo}</SpanDiv>
             </Div>
         </>

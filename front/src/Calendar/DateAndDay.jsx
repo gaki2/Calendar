@@ -38,9 +38,9 @@ const DateAndDay = ({timeInfo}) => {
     return(
         <>
             <Div>
-                <Year>{Time.getYear(timeInfo)}</Year>
-                <Date>{Time.getMonth(timeInfo)}.{Time.getDate(timeInfo)}</Date>
-                <Day>({Time.getToday(timeInfo)})</Day>
+                <Year>{timeInfo.year}</Year>
+                <Date>{timeInfo.month}.{timeInfo.date}</Date>
+                <Day>({timeInfo.today})</Day>
             </Div>
         </>
     )

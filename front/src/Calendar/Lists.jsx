@@ -1,5 +1,9 @@
 import styled from 'styled-components';
 import List from './List';
+import {Time} from "../utils/date.js";
+import {useState, useEffect} from 'react';
+//test
+import todo from "../data.js";
 
 const Div = styled.div`
 z-index: 2;
@@ -14,12 +18,19 @@ display: flex;
 flex-direction: column;
 `;
 
-const Lists = () => {
+const Lists = ({monthlyTodos}) => {
+    console.log(monthlyTodos);
+    const [todayTodo, setTodayTodo] = useState(null); // 오늘이 12월 1일이라고 가정.
+    useEffect(() => {
+        const todos = monthlyTodos ? monthlyTodos[0] : null
+        setTodayTodo(todos);
+    }, [monthlyTodos])
     return(
         <>
         <Div>
-            <List todo={"피아노 연습"}></List>   
-            <List todo={"피아노 연습"}></List>   
+            {todayTodo ? todayTodo.map(element => {
+                return(<List todo={element.todo}></List>);
+            }) : null}
         </Div>
         </>
     )

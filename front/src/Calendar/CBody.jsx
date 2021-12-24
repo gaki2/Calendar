@@ -1,5 +1,6 @@
 import styled from  'styled-components';
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
+import {Time} from '../utils/date.js';
 //LeftDiv Child
 import UpButton from './UpButton';
 import DateAndDay from './DateAndDay';
@@ -7,6 +8,7 @@ import DownButton from './DownButton';
 //RightDiv Child
 import Sentence from './Sentence';
 import Lists from './Lists';
+
 
 const LeftDiv = styled.div`
     position: relative;
@@ -31,18 +33,35 @@ position: relative;
 `;
 
 const CBody = () => {
-    const [timeInfo, setTimeInfo] = useState(Date());
+    const [rawTimeInfo, setRawTimeInfo] = useState(Date()); // raw TimeInfo
+    const [timeInfo, setTimeinfo] = useState({
+        year: null,
+        month: null,
+        date: null,
+        today: null
+    });
+    const [monthlyTodos, setMonthlyTodos] = useState(null);
+
+    useEffect(() => {
+        setTimeinfo({
+            year: Time.getYear(rawTimeInfo),
+            month: Time.getMonth(rawTimeInfo),
+            date: Time.getDate(rawTimeInfo),
+            today: Time.getToday(rawTimeInfo)
+        })
+        setMonthlyTodos(JSON.parse(localStorage.getItem("2021.12")));
+    }, [rawTimeInfo])
 
     return(
         <>
             <LeftDiv>
-                <UpButton timeInfo={timeInfo} setTimeInfo={setTimeInfo}></UpButton>
+                <UpButton timeInfo={rawTimeInfo} setTimeInfo={setRawTimeInfo}></UpButton>
                 <DateAndDay timeInfo={timeInfo}></DateAndDay>
-                <DownButton timeInfo={timeInfo} setTimeInfo={setTimeInfo}></DownButton>
+                <DownButton timeInfo={rawTimeInfo} setTimeInfo={setRawTimeInfo}></DownButton>
             </LeftDiv>
             <RightDiv>
                 <Sentence></Sentence>
-                <Lists></Lists>
+                <Lists monthlyTodos={monthlyTodos}></Lists>
             </RightDiv>
         </>
     )
